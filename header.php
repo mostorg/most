@@ -5,9 +5,7 @@
  * @package Wordpress
  * @subpackage Most
  */
-// global $set;
-// most_theme_set('set-1');
-// echo $set;
+$selected_set = get_option('selected_theme_set');
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -68,28 +66,26 @@
             </div><!--/#header-wrapper-->
         </header>
         <div id="theme-bg" class="tab-content"><?php
-            global $theme_set;
             $theme = get_option('m_theme_sets');
             $num = 0;
-            foreach ( $theme['set'] as $set ) {
-                $num++; ?>
-                <div class="tab-pane <?php echo $theme['default']==$num ? 'active' : ''; ?>" id="set-<?php echo $num; ?>">
+            $selected = isset($selected_set) ? $selected_set : $theme['default'];
+            foreach ( $theme['set'] as $set ) : $num++; ?>
+                <div class="tab-pane <?php echo $selected=='set-'.$num ? 'active' : ''; ?>" id="set-<?php echo $num; ?>">
                     <img class="header-img" src="<?php echo $set['header']; ?>" alt="Theme Set <?php echo $num; ?>" />
                     <img class="body-img" src="<?php echo $set['body']; ?>" alt="Theme Set <?php echo $num; ?>" />
                 </div><?php
-            } ?>
+            endforeach; ?>
         </div>
         <nav id="theme-bar" class="tabbable tabs-left">
-            <?php echo $theme_set; ?>
             <ul class="nav nav-tabs"><?php
                 $num = 0;
-                foreach ( $theme['set'] as $set ) { $num++; ?>
-                    <li class="<?php echo $theme['default']==$num ? 'active' : ''; ?>" onClick="<?php //most_theme_set('set-'.$num); ?>">
+                foreach ( $theme['set'] as $set ) : $num++; ?>
+                    <li class="theme-sets <?php echo $selected=='set-'.$num ? 'active' : ''; ?>" data-set="set-<?php echo $num; ?>">
                         <a href="#set-<?php echo $num; ?>" data-toggle="tab" title="Theme Set <?php echo $num; ?>">
                             <img src="<?php echo $set['icon']; ?>" alt="Theme Set <?php echo $num; ?>" />
                         </a>
                     </li><?php
-                } ?>
+                endforeach; ?>
             </ul>
         </nav>
         <!-- End Header. Begin Template Content -->

@@ -1,6 +1,6 @@
 <?php
 /**
- * Moux Theme Functions
+ * Most Theme Functions
  *
  * @package WordPress
  * @subpackage Most
@@ -20,28 +20,27 @@ if ( !isset( $content_width ) )
     $content_width = 1170;
 
 /**
- * Load CSS styles for theme.
+ * Load CSS and jQuery files for theme.
  */
-function most_styles() {
+function most_scripts() {
     wp_enqueue_style( 'bootstrap-style', get_template_directory_uri().'/bootstrap/css/bootstrap.min.css' );
     wp_enqueue_style( 'bootstrap-responsive', get_template_directory_uri().'/bootstrap/css/bootstrap-responsive.min.css' );
     wp_enqueue_style( 'most-css', get_stylesheet_uri() );
-}
-add_action( 'wp_print_styles', 'most_styles' );
-
-/**
- * Load JavaScript and jQuery files for theme.
- *
- */
-function most_scripts() {
-    if (is_singular() && comments_open() && get_option('thread_comments')) {
-        wp_enqueue_script('comment-reply');
-    }
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'most-js', get_template_directory_uri() . '/js/main.js', array('jquery') );
     wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'most_scripts' );
+
+/**
+ * Frontend Ajaxurl
+ */
+function most_ajaxurl() { ?>
+    <script type="text/javascript">
+        var ajaxurl = '<?php echo admin_url("admin-ajax.php"); ?>';
+    </script><?php
+}
+add_action( 'wp_head', 'most_ajaxurl' );
 
 /**
  * Setup Theme Functions
@@ -59,29 +58,25 @@ function most_theme_setup() {
 add_action( 'after_setup_theme', 'most_theme_setup' );
 
 /**
- * @todo comment this function
- *
- */
-// function most_theme_set( $new_set = null ) {
-//     global $set;
-//     $theme = get_option('m_theme_sets');
-//     if ($new_set) {
-//         $set = $new_set;
-//     } elseif (!isset($theme['default'])||$theme['default']=='') {
-//         $set = 'set-1';
-//     } else {
-//         $set = 'set-'.$theme['default'];
-//     }
-//     return $set;
-// }
+* Theme Set Ajax
+*/
+function most_theme_set_ajax() {
+        global $wpdb; // this is how you get access to the database
+        foreach( $_POST['options'] as $key => $value ) {
+            $changed = update_option( $key, $value );
+        }
+        // save confirmation
+        exit(); // this is required to return a proper result
+}
+add_action( 'wp_ajax_most_theme_set_ajax', 'most_theme_set_ajax' );
 
 /**
  * Adds custom classes to the array of body classes.
  *
  */
-// function most_body_classes($classes){
-//     global $set;
-//     $classes[] = $set;
-//     return $classes;
-// }
-// add_filter( 'body_class', 'most_body_classes' );
+function most_body_classes($classes){
+    $selected_set = get_option('selected_theme_set');
+    $classes[] = $selected_set;
+    return $classes;
+}
+add_filter( 'body_class', 'most_body_classes' );
