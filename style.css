@@ -223,13 +223,20 @@ a:hover .icn-hover {
 #login-wrapper #remember {
 	margin: 5px 5px 0;
 }
-#login-wrapper #login-submit {
+#login-wrapper #login-submit,
+#login-wrapper #logout-submit {
 	height: 26px;
 	background-color: #666;
     border: 0 solid #666;
     border-radius: 6px;
     color: #fff;
     margin: 0 5px;
+}
+#login-wrapper #logout-submit {
+    padding: 4px 6px;
+}
+#login-wrapper #user-welcome {
+    margin-left: 5px;
 }
 #theme-bg {
     background: -moz-linear-gradient(center top , #6699FF, #FFFFFF) repeat scroll 0 0 rgba(0, 0, 0, 0);

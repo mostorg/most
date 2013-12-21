@@ -5,30 +5,34 @@
  * @package Wordpress
  * @subpackage Most
  */
+global $current_user;
+get_currentuserinfo();
+$handle = get_option('m_social');
+$theme = get_option('m_theme_sets');
 $selected_set = get_option('selected_theme_set');
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
     <head>
-        <meta charset="<?php bloginfo('charset'); ?>"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="<?php bloginfo('charset'); ?>" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title><?php wp_title('|', true, 'right'); ?></title>
-        <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>"/>
-        <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/ico/favicon.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/ico/apple-touch-icon-144.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/ico/apple-touch-icon-114.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/ico/apple-touch-icon-72.png">
-        <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/ico/apple-touch-icon-57.png">
+        <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+        <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/ico/favicon.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/ico/apple-touch-icon-144.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/ico/apple-touch-icon-114.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/ico/apple-touch-icon-72.png" />
+        <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/ico/apple-touch-icon-57.png" />
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
         <header>
             <div id="header-wrapper" class="container">
-                <a class="brand span3" href="<?php echo site_url(); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><?php
+                <a class="brand span3" href="<?php bloginfo('url'); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><?php
                     if ( get_header_image()!='' ) { ?>
-                        <img src="<?php header_image(); ?>" alt="<?php echo bloginfo('name'); ?>" /><?php
+                        <img src="<?php header_image(); ?>" alt="<?php bloginfo('name'); ?>" /><?php
                     } else { ?>
-                        <h1><?php echo bloginfo('name'); ?></h1><?php
+                        <h1><?php bloginfo('name'); ?></h1><?php
                     } ?>
                 </a>
                 <nav id="header-nav" class="navbar pull-right">
@@ -40,8 +44,7 @@ $selected_set = get_option('selected_theme_set');
                         'menu_id' => 'quick-menu',
                         'fallback_cb' => ''
                     ) ); ?>
-                    <div id="social-links"><?php 
-                        $handle = get_option('m_social'); ?>
+                    <div id="social-links">
                         <a href="http://facebook.com/<?php echo $handle['facebook']; ?>" title="Visit Facebook" target="_blank">
                             <img class="icn" src="<?php echo get_template_directory_uri(); ?>/img/facebook-dark.png" alt="Facebook" />
                             <img class="icn-hover" src="<?php echo get_template_directory_uri(); ?>/img/facebook-active.png" alt="Facebook" />
@@ -54,19 +57,22 @@ $selected_set = get_option('selected_theme_set');
                     get_search_form(); ?>
                 </nav><!--/.navbar-->
                 <div id="login-wrapper"><?php
-                    wp_login_form( array(
-                        'form_id' => 'login-form',
-                        'label_log_in' => __( 'Login' ),
-                        'id_username' => 'user-login',
-                        'id_password' => 'user-pass',
-                        'id_submit' => 'login-submit',
-                        'remember' => false
-                    ) ); ?>
+                    if ( is_user_logged_in() ) { ?>
+                        <p id="user-welcome">Welcome, <?php echo $current_user->user_login; ?>! <a id="logout-submit" href="<?php echo wp_logout_url( home_url() ); ?>" title="Logout">Logout</a></p><?php
+                    } else {
+                        wp_login_form( array(
+                            'form_id' => 'login-form',
+                            'label_log_in' => __( 'Login' ),
+                            'id_username' => 'user-login',
+                            'id_password' => 'user-pass',
+                            'id_submit' => 'login-submit',
+                            'remember' => false
+                        ) );
+                    } ?>
                 </div>
             </div><!--/#header-wrapper-->
         </header>
         <div id="theme-bg" class="tab-content"><?php
-            $theme = get_option('m_theme_sets');
             $num = 0;
             $selected = isset($selected_set) ? $selected_set : $theme['default'];
             foreach ( $theme['set'] as $set ) : $num++; ?>
