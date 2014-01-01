@@ -266,7 +266,7 @@ function most_theme_options() { ?>
                         </label><?php
                         $mon = $days['mon'];
                         if ( !isset($mon['status']) || $mon['status']=='' ) {
-                            $mon['status'] = 'open';
+                            $mon['status'] = 'closed';
                         } ?>
                         <label class="radio">
                             <input type="radio" name="mon-hours" value="open" <?php echo $mon['status']=='open' ? 'checked' : ''; ?> /> Open
@@ -283,7 +283,7 @@ function most_theme_options() { ?>
                         </label><?php
                         $tue = $days['tue'];
                         if ( !isset($tue['status']) || $tue['status']=='' ) {
-                            $tue['status'] = 'open';
+                            $tue['status'] = 'closed';
                         } ?>
                         <label class="radio">
                             <input type="radio" name="tue-hours" value="open" <?php echo $tue['status']=='open' ? 'checked' : ''; ?> /> Open
@@ -300,7 +300,7 @@ function most_theme_options() { ?>
                         </label><?php
                         $wed = $days['wed'];
                         if ( !isset($wed['status']) || $wed['status']=='' ) {
-                            $wed['status'] = 'open';
+                            $wed['status'] = 'closed';
                         } ?>
                         <label class="radio">
                             <input type="radio" name="wed-hours" value="open" <?php echo $wed['status']=='open' ? 'checked' : ''; ?> /> Open
@@ -317,7 +317,7 @@ function most_theme_options() { ?>
                         </label><?php
                         $thu = $days['thu'];
                         if ( !isset($thu['status']) || $thu['status']=='' ) {
-                            $thu['status'] = 'open';
+                            $thu['status'] = 'closed';
                         } ?>
                         <label class="radio">
                             <input type="radio" name="thu-hours" value="open" <?php echo $thu['status']=='open' ? 'checked' : ''; ?> /> Open
@@ -334,7 +334,7 @@ function most_theme_options() { ?>
                         </label><?php
                         $fri = $days['fri'];
                         if ( !isset($fri['status']) || $fri['status']=='' ) {
-                            $fri['status'] = 'open';
+                            $fri['status'] = 'closed';
                         } ?>
                         <label class="radio">
                             <input type="radio" name="fri-hours" value="open" <?php echo $fri['status']=='open' ? 'checked' : ''; ?> /> Open
@@ -351,7 +351,7 @@ function most_theme_options() { ?>
                         </label><?php
                         $sat = $days['sat'];
                         if ( !isset($sat['status']) || $sat['status']=='' ) {
-                            $sat['status'] = 'open';
+                            $sat['status'] = 'closed';
                         } ?>
                         <label class="radio">
                             <input type="radio" name="sat-hours" value="open" <?php echo $sat['status']=='open' ? 'checked' : ''; ?> /> Open
@@ -368,7 +368,7 @@ function most_theme_options() { ?>
                         </label><?php
                         $sun = $days['sun'];
                         if ( !isset($sun['status']) || $sun['status']=='' ) {
-                            $sun['status'] = 'open';
+                            $sun['status'] = 'closed';
                         } ?>
                         <label class="radio">
                             <input type="radio" name="sun-hours" value="open" <?php echo $sun['status']=='open' ? 'checked' : ''; ?> /> Open

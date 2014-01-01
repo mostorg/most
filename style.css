@@ -264,7 +264,8 @@ a:hover .icn-hover {
     box-shadow: 3px 3px 4px #000;
     margin-left: -155px;
     transition: all 1s;
-    height: 350px;
+    max-height: 354px;
+    height: auto;
     width: 150px;
     position: fixed;
     top: 85px;
@@ -280,9 +281,14 @@ a:hover .icn-hover {
 #theme-bar ul {
 	border: none;
 	margin-left: 15px;
+    margin-bottom: 0;
 }
 #theme-bar a {
 	border: none;
+}
+#theme-bar a:hover,
+#theme-bar a:focus {
+    background-color: transparent;
 }
 
 /**

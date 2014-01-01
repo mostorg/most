@@ -18,16 +18,21 @@ $footer = get_option('m_footer');
                     'fallback_cb' => ''
                 ) ); ?>
                 <article id="footer-content"><?php
-                    if ($footer['address1']!='') ?>
+                    if ($footer['address1']!='') { ?>
                         <p id="address1"><?php echo $footer['address1']; ?></p><?php
-                    if ($footer['address2']!='') ?>
+                    }
+                    if ($footer['address2']!='') { ?>
                         <p><?php echo $footer['address2']; ?></p><?php
-                    if ($footer['address3']!='') ?>
+                    }
+                    if ($footer['address3']!='') { ?>
                         <p><?php echo $footer['address3']; ?></p><?php
-                    if ($footer['phone']!='') ?>
+                    }
+                    if ($footer['phone']!='') { ?>
                         <p>Phone: <?php echo $footer['phone']; ?></p><?php
-                    if ($footer['copyright']!='') ?>
-                        <p id="copyright"><?php echo $footer['copyright']; ?></p>
+                    }
+                    if ($footer['copyright']!='') { ?>
+                        <p id="copyright"><?php echo $footer['copyright']; ?></p><?php
+                    } ?>
                 </article>
             </div><!-- /container -->
         </footer><?php
