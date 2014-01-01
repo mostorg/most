@@ -27,6 +27,7 @@ function most_scripts() {
     wp_enqueue_style( 'bootstrap-responsive', get_template_directory_uri().'/bootstrap/css/bootstrap-responsive.min.css' );
     wp_enqueue_style( 'most-css', get_stylesheet_uri() );
     wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jquery-ui-datepicker' );
     wp_enqueue_script( 'most-js', get_template_directory_uri() . '/js/main.js', array('jquery') );
     wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'), '1.0', true );
 }

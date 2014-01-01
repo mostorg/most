@@ -10,11 +10,7 @@ jQuery(document).ready(function($) {
 		$('ul', this).hide();
 	});
 
-	//theme sets
-	// $('#theme-bar li').click(function(){
-	// 	var set = $('a',this).attr('href').substring(1);
-	// 	$('body').addClass(set);
-	// });
+	$('#calendar').datepicker();
 
     $('.theme-sets').click(function(){
         $this = $(this);
