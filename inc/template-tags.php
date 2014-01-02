@@ -67,14 +67,15 @@ function get_most_articles( $num = 1 ) {
  */
 function most_calendar( $month, $year ) {
 
-    /* draw table */
+    /* open the table */
     $calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
 
     /* table headings */
     $headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
     $calendar.= '<tr class="calendar-row"><td class="calendar-day-head">'.implode('</td><td class="calendar-day-head">',$headings).'</td></tr>';
 
-    /* days and weeks vars now ... */
+    /* days and weeks variables */
+    $today = date('j');
     $running_day = date('w',mktime(0,0,0,$month,1,$year));
     $days_in_month = date('t',mktime(0,0,0,$month,1,$year));
     $days_in_this_week = 1;
@@ -92,7 +93,11 @@ function most_calendar( $month, $year ) {
 
     /* keep going with days.... */
     for($list_day = 1; $list_day <= $days_in_month; $list_day++):
+    	if ( $list_day == $today ) :
+        $calendar.= '<td class="calendar-day highlight-today">';
+    	else :
         $calendar.= '<td class="calendar-day">';
+    	endif;
             /* add in the day number */
             $calendar.= '<div class="day-number">'.$list_day.'</div>';
 
@@ -108,9 +113,9 @@ function most_calendar( $month, $year ) {
 			}
             
         $calendar.= '</td>';
-        if($running_day == 6):
+        if( $running_day == 6 ):
             $calendar.= '</tr>';
-            if(($day_counter+1) != $days_in_month):
+            if( ($day_counter+1) != $days_in_month ):
                 $calendar.= '<tr class="calendar-row">';
             endif;
             $running_day = -1;
