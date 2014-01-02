@@ -27,7 +27,6 @@ function most_scripts() {
     wp_enqueue_style( 'bootstrap-responsive', get_template_directory_uri().'/bootstrap/css/bootstrap-responsive.min.css' );
     wp_enqueue_style( 'most-css', get_stylesheet_uri() );
     wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'jquery-ui-datepicker' );
     wp_enqueue_script( 'most-js', get_template_directory_uri() . '/js/main.js', array('jquery') );
     wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'), '1.0', true );
 }
@@ -75,7 +74,7 @@ add_action( 'wp_ajax_most_theme_set_ajax', 'most_theme_set_ajax' );
  * Adds custom classes to the array of body classes.
  *
  */
-function most_body_classes($classes){
+function most_body_classes( $classes ){
     $selected_set = get_option('selected_theme_set');
     $classes[] = $selected_set;
     return $classes;

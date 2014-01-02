@@ -10,8 +10,6 @@ jQuery(document).ready(function($) {
 		$('ul', this).hide();
 	});
 
-	$('#calendar').datepicker();
-
     $('.theme-sets').click(function(){
         $this = $(this);
         //get these tricky values individually
