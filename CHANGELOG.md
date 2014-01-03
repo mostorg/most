@@ -1,9 +1,15 @@
 Change Log - MOST
 ===
 
+### 0.1.4 - 03 Jan 2014
+* Built event and show queries for calendar
+
+- - -
+
 ### 0.1.3 - 02 Jan 2014
-* Added _most_calendar()_ template tag to build calendar html structure
-* Added *most_calendar_controls()* template tag to build calendar controls structure and functionality
+* Added __most_calendar()__ template tag to build calendar html structure
+* Added **most_calendar_controls()** template tag to build calendar controls structure and functionality
+* Styled `page-calendar.php`
 
 - - -
 

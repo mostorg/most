@@ -15,7 +15,7 @@ $year = date('Y');
     while ( have_posts() ) : the_post(); ?>
         <h2><?php the_title(); ?></h2><?php
     endwhile; ?>
-    <h3><?php echo $month . ' ' . $year; ?></h3><?php
+    <h3><?php echo $month.' '.$year; ?></h3><?php
     echo most_calendar($monthNum,$year);
     //echo most_calendar_controls($monthNum,$year); ?>
 </div><!--/#calendar-->

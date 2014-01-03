@@ -404,7 +404,7 @@ h2 + .featured-post {
 table.calendar {
     border-collapse: separate;
 }
-td.calendar-day-head {
+td.cal-day-head {
     border-bottom: 1px solid #999;
     border-right: 1px solid #999;
     border-top: 1px solid #999;
@@ -415,52 +415,81 @@ td.calendar-day-head {
     padding: 5px;
     color: #fff;
 }
-td.calendar-day-head:first-of-type {
+td.cal-day-head:first-of-type {
     border-left: 1px solid #999;
 }
-tr.calendar-row td:first-of-type {
+tr.cal-row td:first-of-type {
     border-left: 1px solid #999;
 }
-.highlight-today {
+.cal-today {
     background-color: rgba(170, 230, 60, 0.2) !important;
 }
-td.calendar-day,
-td.calendar-day-np {
+td.cal-day,
+td.cal-day-empty {
     border-bottom: 1px solid #999;
     border-right: 1px solid #999;
     width: 120px;
     padding: 5px;
 }
-td.calendar-day {
+td.cal-day {
     background-color: #fff;
-    position: relative;
     font-size: 12px;
     height: 100px;
 }
-td.calendar-day:hover {
+td.cal-day:hover {
     background-color: rgba(170, 230, 60, 0.2);
 }
-td.calendar-day-np {
+td.cal-day-empty {
     background-color: #eee;
     height: 100px;
+}
+.day-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 .day-number {
     border-top: 1px solid #999;
     border-bottom: 1px solid #999;
     border-right: 1px solid #999;
     background-color: #eee;
-    position: relative;
+    position: absolute;
     text-align: center;
     cursor: pointer;
     padding: 5px;
     color: #999;
     width: 20px;
     left: -5px;
-    top: -10px;
+    top: -6px;
 }
 .day-number:hover {
     background-color: #E60896;
     color: #fff;
+}
+article.cal-event {
+    margin-right: -5px;
+    padding-top: 35px;
+}
+article.cal-event h4 {
+    border-radius: 9px 0 0 9px;
+    padding: 0 10px;
+    color: #fff;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 16px;
+    margin: 0;
+}
+article.cal-event h4:nth-of-type(1) {
+    background-color: #65A420;
+}
+article.cal-event h4:nth-of-type(2) {
+    background-color: #8DBD35;
+}
+article.cal-event h4:nth-of-type(3) {
+    background-color: #9BB101;
+}
+article.cal-event h4:nth-of-type(4) {
+    background-color: #AEAE00;
 }
 
 /**
