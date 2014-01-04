@@ -1,16 +1,40 @@
-Change Log - Most
+Change Log - MOST
 ===
 
-### 0.0.2 - 06 July 2013
-* Added `page-home.php` for static home page
-* Built home page layout in `page-home.php`
-* Updated backend functionality for adminend and frontend in `functions.php`
+### 0.1.5 - 04 Jan 2014
+* Activated popover [Bootstrap JavaScript](http://getbootstrap.com/2.3.2/javascript.html#popovers) in `js/main.js`
+* Built calendar day popovers for event and show details
+* Styled calendar day popovers
+* Customized __most_calendar_controls()__ template tag to build calendar controls structure and functionality
+* Styled calendar controls
 
 - - -
 
-### 0.0.1 - 05 July 2013
-* Installed a [bootstrap starter theme](http://bootstrapwp.rachelbaker.me/)
-* Added `ico` folder for favicons and apple icons
-* Added `inc` folder for function files to include
-* Added license.txt for [GNU](http://www.gnu.org/licenses/gpl.html)
-* Added readme.md
+### 0.1.4 - 03 Jan 2014
+* Built event and show queries for calendar
+
+- - -
+
+### 0.1.3 - 02 Jan 2014
+* Added calendar functions by [David Walsh](http://davidwalsh.name/php-event-calendar) to `inc/template-tags.php`
+* Customized __most_calendar()__ template tag to build calendar html structure
+* Styled `template-pages/page-calendar.php`
+
+- - -
+
+### 0.1.2 - 01 Jan 2014
+* Added `template-pages/page-calendar.php` for event calendar templates
+* Built basic calendar layout in `template-pages/page-calendar.php`
+* Updated backend isset functionality for backend and frontend
+
+- - -
+
+### 0.1.1 - 21 Dec 2013
+* Added favicon files to `ico` folder
+* Built user welcome and logout functionality
+* Built AJAX operations for theme set logic
+
+- - -
+
+### 0.1.0 - 20 Dec 2013
+* Added all files and folders from IST 466 / Internship Project
