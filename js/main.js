@@ -26,6 +26,8 @@ jQuery(document).ready(function($) {
         });
     });
 
+    $('#calendar .day-number').popover({ html : true });
+
 });
 
 jQuery(window).load(function($) {

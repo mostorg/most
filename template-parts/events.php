@@ -42,7 +42,7 @@ $sp_events = get_most_events(false,'today');
 if ( $sp_events->have_posts() ) : ?>
 	<article class="events-today">
 		<h4>Special Events Today</h4><?php
-		while ( $ed_events->have_posts() ) : $ed_events->the_post();
+		while ( $sp_events->have_posts() ) : $sp_events->the_post();
 			$event = get_post_meta(get_the_ID(), 'most_event_meta', true); ?>
 			<p><span><?php echo $event['start_time']; ?>:</span> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> - <?php echo $event['location']; ?></p><?php
 		endwhile; ?>

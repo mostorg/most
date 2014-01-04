@@ -7,17 +7,19 @@
  * @subpackage Most
  */
 get_header();
-$month = date('F');
-$monthNum = date('n');
-$year = date('Y');
+$year = (int) ($_GET['year'] ? $_GET['year'] : date('Y'));
+$month = $_GET['month'] ? date('F', mktime(0, 0, 0, $_GET['month'], 1, $year)) : date('F');
+$monthNum = (int) ($_GET['month'] ? $_GET['month'] : date('n'));
 ?>
-<div class="container"><?php
+<div id="calendar" class="container"><?php
     while ( have_posts() ) : the_post(); ?>
         <h2><?php the_title(); ?></h2><?php
     endwhile; ?>
-    <h3><?php echo $month.' '.$year; ?></h3><?php
-    echo most_calendar($monthNum,$year);
-    //echo most_calendar_controls($monthNum,$year); ?>
+    <h3 class="monthyear"><?php echo $month.' '.$year; ?></h3>
+    <section><?php
+        echo most_calendar($monthNum,$year);
+        echo most_calendar_controls($monthNum,$year); ?>
+    </section>
 </div><!--/#calendar-->
 <?php
 get_footer(); ?>

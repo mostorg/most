@@ -29,6 +29,13 @@ body {
 	clip: rect(0 0 0 0);
 	border: 0;
 }
+.popover {
+    min-width: 260px;
+    max-width: 300px;
+}
+.popover-title {
+    font-size: 16px;
+}
 
 /**
  * WP DEFAULT CSS
@@ -401,6 +408,13 @@ h2 + .featured-post {
 /**
  * CALENDAR
  */
+#calendar h3.monthyear {
+    font-weight: normal;
+    text-transform: uppercase;
+}
+#calendar section {
+    display: inline-block;
+}
 table.calendar {
     border-collapse: separate;
 }
@@ -462,34 +476,70 @@ td.cal-day-empty {
     left: -5px;
     top: -6px;
 }
-.day-number:hover {
+.day-number:hover,
+.day-number:focus {
     background-color: #E60896;
     color: #fff;
 }
 article.cal-event {
     margin-right: -5px;
-    padding-top: 35px;
+    padding-top: 33px;
 }
-article.cal-event h4 {
+article.cal-event h4,
+.popover-content h4 {
     border-radius: 9px 0 0 9px;
     padding: 0 10px;
     color: #fff;
     font-weight: normal;
     font-size: 11px;
     line-height: 16px;
-    margin: 0;
+    margin: 0 0 1px;
 }
-article.cal-event h4:nth-of-type(1) {
+article.cal-event h4:nth-of-type(1),
+.popover-content h4:nth-of-type(1) {
     background-color: #65A420;
 }
-article.cal-event h4:nth-of-type(2) {
+article.cal-event h4:nth-of-type(2),
+.popover-content h4:nth-of-type(2) {
     background-color: #8DBD35;
 }
-article.cal-event h4:nth-of-type(3) {
+article.cal-event h4:nth-of-type(3),
+.popover-content h4:nth-of-type(3) {
     background-color: #9BB101;
 }
-article.cal-event h4:nth-of-type(4) {
+article.cal-event h4:nth-of-type(4),
+.popover-content h4:nth-of-type(4) {
     background-color: #AEAE00;
+}
+.popover-content h4 {
+    font-size: 12px;
+}
+.popover-content p {
+    padding-left: 10px;
+}
+form.cal-form {
+    width: 100%;
+}
+.cal-control {
+    border-radius: 0 0 12px 12px;
+    background-color: #666;
+    border: 0 solid #ccc;
+    line-height: 26px;
+    text-align: center;
+    width: 140px;
+    color: #fff;
+}
+.cal-prev {
+    margin: 0 0 0 8px;
+}
+.cal-next {
+    margin: 0 8px 0 0;
+}
+.cal-control:hover,
+.cal-control:focus {
+    background-color: #E60896;
+    text-decoration: none;
+    color: #fff;
 }
 
 /**

@@ -248,69 +248,100 @@ function get_most_shows( $type = 'all', $date = null ) {
 
 /**
  * Creates a calendar.
+ * @param int $month Numeric representation of a month
+ * @param int $year A full numeric representation of a year
+ * @return string $calendar HTML structure of calendar
+ * @todo check shows day of the week schedule
  */
 function most_calendar( $month, $year ) {
-
-    /* open the table */
+    # open the table
     $calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
 
-    /* table headings */
+    # table headings
     $headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
     $calendar .= '<tr class="cal-row"><td class="cal-day-head">'.implode('</td><td class="cal-day-head">',$headings).'</td></tr>';
 
-    /* days and weeks variables */
-    $today = date('j');
+    # days and week variables
+    $today = date('Ymd');
     $running_day = date('w',mktime(0,0,0,$month,1,$year));
     $days_in_month = date('t',mktime(0,0,0,$month,1,$year));
     $days_in_this_week = 1;
     $day_counter = 0;
     $dates_array = array();
 
-    /* row for week one */
+    # row for week one
     $calendar .= '<tr class="cal-row">';
 
-    /* print blank days until the first of the current week */
+    # print blank days until the first of the current week
     for ( $x = 0; $x < $running_day; $x++ ) :
         $calendar .= '<td class="cal-day-empty"></td>';
         $days_in_this_week++;
     endfor;
 
-    /* keep going with days.... */
+    # continued days
     for ( $list_day = 1; $list_day <= $days_in_month; $list_day++ ) :
-	    $date = date('Ymd', strtotime($year.'-'.$month.'-'.$list_day));
-        $calendar .= $list_day == $today ? '<td class="cal-day cal-today"><div class="day-container">' : '<td class="cal-day"><div class="day-container">';
-            /* add in the day number */
-            $calendar .= '<div class="day-number">'.$list_day.'</div>';
+	    $date = date('Ymd', mktime(0, 0, 0, $month, $list_day, $year));
+		$data_content = '';
 
-            /** query for events/shows that match the day **/
+		# open day container
+        $calendar .= $date == $today ? '<td class="cal-day cal-today"><div class="day-container">' : '<td class="cal-day"><div class="day-container">';
+            
+            # query for events/shows that match the day
 			if ( get_most_events('all',$date)->found_posts>0 || get_most_shows('all',$date)->found_posts>0 ) :
 				$calendar .= '<article class="cal-event">';
 					# omni shows
 					$omni_shows = get_most_shows('Omni',$date);
 					if ( $omni_shows->have_posts() ) :
 						$calendar .= '<h4>Omnitheatre</h4>';
+						$data_content .= '<h4>Omnitheatre</h4>';
+						while ( $omni_shows->have_posts() ) : $omni_shows->the_post();
+							$show = get_post_meta(get_the_ID(), 'most_show_meta', true);
+							$data_content .= '<p><span>'.$show['start_time'].':</span> <a href="'.get_permalink(get_the_ID()).'">'.get_the_title(get_the_ID()).'</a></p>';
+						endwhile;
 					endif; wp_reset_postdata();
 					# educational events
 					$ed_events = get_most_events(true,$date);
 					if ( $ed_events->have_posts() ) :
 						$calendar .= '<h4>Educational</h4>';
+						$data_content .= '<h4>Educational</h4>';
+						while ( $ed_events->have_posts() ) : $ed_events->the_post();
+							$event = get_post_meta(get_the_ID(), 'most_event_meta', true);
+							$data_content .= '<p><span>'.$event['start_time'].':</span> <a href="'.get_permalink(get_the_ID()).'">'.get_the_title(get_the_ID()).'</a> - '.$event['location'].'</p>';
+						endwhile;
 					endif; wp_reset_postdata();
 					# planetarium shows
 					$pl_shows = get_most_shows('Planetarium',$date);
 					if ( $pl_shows->have_posts() ) :
 						$calendar .= '<h4>Planetarium</h4>';
+						$data_content .= '<h4>Planetarium</h4>';
+						while ( $pl_shows->have_posts() ) : $pl_shows->the_post();
+							$show = get_post_meta(get_the_ID(), 'most_show_meta', true);
+							$data_content .= '<p><span>'.$show['start_time'].':</span> <a href="'.get_permalink(get_the_ID()).'">'.get_the_title(get_the_ID()).'</a></p>';
+						endwhile;
 					endif; wp_reset_postdata();
 					# all other events
 					$sp_events = get_most_events(false,$date);
 					if ( $sp_events->have_posts() ) :
 						$calendar .= '<h4>Special Events</h4>';
+						$data_content .= '<h4>Special Events</h4>';
+						while ( $sp_events->have_posts() ) : $sp_events->the_post();
+							$event = get_post_meta(get_the_ID(), 'most_event_meta', true);
+							$data_content .= '<p><span>'.$event['start_time'].':</span> <a href="'.get_permalink(get_the_ID()).'">'.get_the_title(get_the_ID()).'</a> - '.$event['location'].'</p>';
+						endwhile;
 					endif; wp_reset_postdata();
 				$calendar .= '</article>';
+
+	            # add in the day number with popover event info
+	            $calendar .= '<div class="day-number" data-title="'.date('l', mktime(0, 0, 0, $month, $list_day, $year)).', '.date('F', mktime(0, 0, 0, $month, $list_day, $year)).' '.date('jS', mktime(0, 0, 0, $month, $list_day, $year)).' at the MOST" data-content="'.htmlspecialchars($data_content).'">'.$list_day.'</div>';
 			else :
-				$calendar .= str_repeat('<p>&nbsp;</p>',2);
+	            # add in the day number
+	            $calendar .= '<div class="day-number" data-title="'.date('l', mktime(0, 0, 0, $month, $list_day, $year)).', '.date('F', mktime(0, 0, 0, $month, $list_day, $year)).' '.date('jS', mktime(0, 0, 0, $month, $list_day, $year)).' at the MOST" data-content="There are no scheduled events or shows today.">'.$list_day.'</div>';
 			endif;
-            
+
+        # close day container
         $calendar .= '</div></td>';
+
+        # check to close row and open new one
         if ( $running_day == 6 ) :
             $calendar.= '</tr>';
             if ( ($day_counter+1) != $days_in_month ) :
@@ -322,54 +353,45 @@ function most_calendar( $month, $year ) {
         $days_in_this_week++; $running_day++; $day_counter++;
     endfor;
 
-    /* finish the rest of the blank days in the week */
+    # finish the rest of the blank days in the week
     if ( $days_in_this_week < 8 ) :
         for ( $x = 1; $x <= (8 - $days_in_this_week); $x++ ) :
             $calendar .= '<td class="cal-day-empty"></td>';
         endfor;
     endif;
 
-    /* final row */
+    # final row
     $calendar .= '</tr>';
 
-    /* end the table */
+    # end the table
     $calendar .= '</table>';
     
-    /* return result */
+    # return result
     return $calendar;
 }
 
 /**
  * Creates calendar controls.
+ * @param int $month Numeric representation of a month
+ * @param int $year A full numeric representation of a year
+ * @return string $controls HTML structure of calendar controls
  */
 function most_calendar_controls( $month, $year ) {
-	/* date settings */
+	# date variables
 	$month = (int) ($_GET['month'] ? $_GET['month'] : date('m'));
-	$year = (int)  ($_GET['year'] ? $_GET['year'] : date('Y'));
+	$year = (int) ($_GET['year'] ? $_GET['year'] : date('Y'));
+	$next_month = $month != 12 ? $month + 1 : 1;
+	$next_year = $month != 12 ? $year : $year + 1;
+	$prev_month = $month != 1 ? $month - 1 : 12;
+	$prev_year = $month != 1 ? $year : $year - 1;
 
-	/* select month control */
-	$select_month_control = '<select name="month" id="month">';
-	for ( $x = 1; $x <= 12; $x++ ) :
-		$select_month_control .= '<option value="'.$x.'"'.($x != $month ? '' : ' selected="selected"').'>'.date('F',mktime(0,0,0,$x,1,$year)).'</option>';
-	endfor;
-	$select_month_control .= '</select>';
-
-	/* select year control */
-	$year_range = 7;
-	$select_year_control = '<select name="year" id="year">';
-	for ( $x = ($year-floor($year_range/2)); $x <= ($year+floor($year_range/2)); $x++ ) :
-		$select_year_control .= '<option value="'.$x.'"'.($x != $year ? '' : ' selected="selected"').'>'.$x.'</option>';
-	endfor;
-	$select_year_control .= '</select>';
-
-	/* "next month" control */
-	$next_month_link = '<a href="?month='.($month != 12 ? $month + 1 : 1).'&year='.($month != 12 ? $year : $year + 1).'" class="control">Next Month >></a>';
-
-	/* "previous month" control */
-	$previous_month_link = '<a href="?month='.($month != 1 ? $month - 1 : 12).'&year='.($month != 1 ? $year : $year - 1).'" class="control"><< 	Previous Month</a>';
-
-	/* bringing the controls together */
-	$controls = '<form method="get">'.$select_month_control.$select_year_control.'<input type="submit" name="submit" value="Go" />'.$previous_month_link.$next_month_link.'</form>';
-
+	# next month control
+	$next_month_link = '<a href="'.add_query_arg( array( 'month' => $next_month, 'year' => $next_year ) ).'" class="cal-next cal-control pull-right">'.date('F', mktime(0, 0, 0, $next_month, 1, $next_year)).' »</a>';
+	
+	# previous month control
+	$previous_month_link = '<a href="'.add_query_arg( array( 'month' => $prev_month, 'year' => $prev_year ) ).'" class="cal-prev cal-control pull-left">« '.date('F', mktime(0, 0, 0, $prev_month, 1, $prev_year)).'</a>';
+	
+	# output
+	$controls = '<form class="cal-form clearfix" method="get">'.$previous_month_link.$next_month_link.'</form>';
 	return $controls;
 }

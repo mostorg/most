@@ -1,21 +1,30 @@
 Change Log - MOST
 ===
 
+### 0.1.5 - 04 Jan 2014
+* Activated popover [Bootstrap JavaScript](http://getbootstrap.com/2.3.2/javascript.html#popovers) in `js/main.js`
+* Built calendar day popovers for event and show details
+* Styled calendar day popovers
+* Customized __most_calendar_controls()__ template tag to build calendar controls structure and functionality
+* Styled calendar controls
+
+- - -
+
 ### 0.1.4 - 03 Jan 2014
 * Built event and show queries for calendar
 
 - - -
 
 ### 0.1.3 - 02 Jan 2014
-* Added __most_calendar()__ template tag to build calendar html structure
-* Added **most_calendar_controls()** template tag to build calendar controls structure and functionality
-* Styled `page-calendar.php`
+* Added calendar functions by [David Walsh](http://davidwalsh.name/php-event-calendar) to `inc/template-tags.php`
+* Customized __most_calendar()__ template tag to build calendar html structure
+* Styled `template-pages/page-calendar.php`
 
 - - -
 
 ### 0.1.2 - 01 Jan 2014
-* Added `page-calendar.php` for event calendar templates
-* Built basic calendar layout in `page-calendar.php`
+* Added `template-pages/page-calendar.php` for event calendar templates
+* Built basic calendar layout in `template-pages/page-calendar.php`
 * Updated backend isset functionality for backend and frontend
 
 - - -
