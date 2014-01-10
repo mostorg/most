@@ -7,7 +7,7 @@
  */
 $footer = get_option('m_footer');
 ?>
-        </div><!--/#main-->
+        </section><!--/#main-->
         <footer>
             <div class="container"><?php
                 wp_nav_menu( array(
