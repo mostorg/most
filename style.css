@@ -432,8 +432,12 @@ td.cal-day-head {
 td.cal-day-head:first-of-type {
     border-left: 1px solid #999;
 }
+tr.cal-head-row td:first-of-type,
 tr.cal-row td:first-of-type {
     border-left: 1px solid #999;
+}
+tr.cal-row {
+    background-color: #fff;
 }
 .cal-today {
     background-color: rgba(170, 230, 60, 0.2) !important;

@@ -259,7 +259,7 @@ function most_calendar( $month, $year ) {
 
     # table headings
     $headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
-    $calendar .= '<tr class="cal-row"><td class="cal-day-head">'.implode('</td><td class="cal-day-head">',$headings).'</td></tr>';
+    $calendar .= '<tr class="cal-head-row"><td class="cal-day-head">'.implode('</td><td class="cal-day-head">',$headings).'</td></tr>';
 
     # days and week variables
     $today = date('Ymd');
