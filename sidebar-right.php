@@ -5,6 +5,8 @@
  * @package WordPress
  * @subpackage Most
  */
-if (function_exists('dynamic_sidebar')) {
-    dynamic_sidebar('right-sidebar');
+if (function_exists('dynamic_sidebar')) { ?>
+	<aside id="sidebar-right" class="span3 pull-right"><?php
+	    dynamic_sidebar('right-sidebar'); ?>
+	</aside><?php
 }

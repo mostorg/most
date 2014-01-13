@@ -119,6 +119,27 @@ a img.aligncenter {
 .bypostauthor{}
 
 /**
+ * SEARCH FORM
+ */
+.form-search {
+    margin: 0;
+}
+.form-search .search-field {
+    background-color: rgba(170, 230, 60, 0.2);
+    border: 1px solid #AAE63C;
+    border-radius: 6px;
+    color: #444;
+}
+.form-search .search-btn {
+    height: 28px;
+    width: auto;
+}
+.search-content .search-field,
+.404-content .search-field {
+    width: 50%;
+}
+
+/**
  * HEADER
  */
 header {
@@ -165,20 +186,15 @@ header .brand img {
 	color: #CC3366;
 	border-color: #CC3366;
 }
-.form-search {
+header .form-search {
 	display: inline-block;
 	margin: -5px 0 0;
 }
-.form-search .search-field {
+header .form-search .search-field {
 	background-color: #65CA00;
     border: none;
-    border-radius: 6px;
     color: #fff;
     margin: 0 0 0 5px;
-}
-.form-search .search-btn {
-	height: 28px;
-	width: auto;
 }
 #social-links {
 	display: inline-block;

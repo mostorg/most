@@ -5,70 +5,28 @@
  * @package WordPress
  * @subpackage Most
  */
-get_header(); ?>
-<div class="container">
-    <div class="row">
-        <div class="span12">
-            <?php if (function_exists('most_breadcrumbs')) {
-                most_breadcrumbs();
-            } ?>
-        </div>
-    </div><!--/.row -->
-
-	<div class="row content">
-        <div class="span8">
-            <?php if (have_posts()) : ?>
-                 <header class="post-title">
-                     <h1><?php printf( __('Search Results for: %s', 'travelust'),'<span>' . get_search_query() . '</span>'); ?></h1>
-                 </header>
-
-    		  <?php while (have_posts()) : the_post(); ?>
-                <div <?php post_class(); ?>>
-                    <a href="<?php the_permalink(); ?>" title="<?php the_title();?>">
-                        <h3><?php the_title();?></h3>
-                    </a>
-                    <p class="meta">
-                        <?php echo most_posted_on();?>
-                    </p>
-
-                    <div class="row">
-                        <?php // Post thumbnail conditional display.
-                        if ( most_autoset_featured_img() !== false ) : ?>
-                            <div class="span2">
-                                <a href="<?php the_permalink(); ?>" title="<?php  the_title_attribute( 'echo=0' ); ?>">
-                                    <?php echo most_autoset_featured_img(); ?>
-                                </a>
-                            </div>
-                            <div class="span6">
-                        <?php else : ?>
-                            <div class="span8">
-                        <?php endif; ?>
-                                <?php the_excerpt(); ?>
-                            </div>
-                    </div><!-- /.row -->
-
-                    <hr/>
-                </div><!-- /.post_class -->
-             <?php endwhile; ?>
-
-            <?php else : ?>
-            	<div class="row content">
-                    <div class="span8">
-                        <header class="post-title">
-                            <h1><?php _e('No Results Found', 'most'); ?></h1>
-                        </header>
-                        <p class="lead">
-                            <?php _e(
-                                'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps you should try again with a different search term.',
-                                'most'); ?>
-                        </p>
-                        <div class="well">
-                            <?php get_search_form(); ?>
-                        </div><!--/.well -->
-             <?php endif;?>
-
-             <?php most_content_nav('nav-below'); ?>
-        </div>
-
-    <?php get_sidebar(); ?>
-    <?php get_footer(); ?>
+get_header();
+    get_sidebar('left'); ?>
+        <div id="search-content" class="span6"><?php
+            if ( have_posts() ) : ?>
+                <h2><?php printf( __('Search Results for: "%s"', 'most'),'<span>' . get_search_query() . '</span>'); ?></h2><?php
+                while ( have_posts() ) : the_post(); ?>
+                    <div <?php post_class(); ?>>
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                            <h3><?php the_title();?></h3>
+                        </a>
+                        <span class="muted"><?php the_date(); ?></span>
+                        <?php the_excerpt(); ?>
+                     </div><!-- /.post_class -->
+                     <hr><?php
+                endwhile;
+            else : ?>
+                <h2><?php printf( __('No Results Found for: "%s"', 'most'),'<span>' . get_search_query() . '</span>'); ?></h2>
+                    <p class="lead">It seems we can't find what you're looking for. Perhaps you should try again with a different search term.</p>
+                    <div class="well">
+                        <?php get_search_form(); ?>
+                    </div><?php
+            endif; ?>
+        </div><?php
+    get_sidebar('right');
+get_footer(); ?>

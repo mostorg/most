@@ -58,9 +58,11 @@
     margin: 0;
 }
 #footer-options .inside label {
-    width: 100px;
+    width: 105px;
 }
-#footer-options .inside input[type="text"] {
+#footer-options .inside input[type="phone"] {
+    height: 30px;
+}#footer-options .inside input[type="text"] {
     width: 400px;
 }
 
