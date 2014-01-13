@@ -1,0 +1,98 @@
+/**
+ * Most Admin Theme Styles
+ *
+ */
+#theme-options-frame .inside hr {
+    margin-top: 11px;
+    color: #fff;
+    opacity: 0.5;
+}
+#theme-options-frame .inside legend {
+    font-size: 18px;
+    line-height: 34px;
+}
+#theme-options-frame .inside label,
+#theme-options-frame .inside textarea {
+    display: inline-block;
+}
+#theme-options-frame .inside label {
+    line-height: 30px;
+    margin-right: 10px;
+    width: 70px;
+    text-align: right;
+}
+#theme-options-frame .inside label.radio {
+    width: auto;
+    line-height: 20px;
+}
+#theme-options-frame input[type="text"],
+#theme-options-frame input[type="button"] {
+    height: 30px;
+}
+#theme-options-frame .input-prepend input,
+#theme-options-frame .input-append input {
+    margin: 0;
+}
+#theme-set-options .inside form {
+    margin-right: 40px;
+}
+#theme-set-options .inside label {
+    float: left;
+    width: 90px;
+}
+#theme-set-options .inside img {
+    width: 22px;
+    margin-left: 10px;
+}
+#theme-set-options .input-append .btn {
+    margin-left: -2px;
+}
+#front-page-options .inside input[type="time"] {
+    margin: 0 10px;
+}
+#front-page-options .inside label {
+    width: 80px;
+}
+#front-page-options .inside label.ratio {
+    width: auto;
+    margin: 0;
+}
+#footer-options .inside label {
+    width: 105px;
+}
+#footer-options .inside input[type="phone"] {
+    height: 30px;
+}#footer-options .inside input[type="text"] {
+    width: 400px;
+}
+
+
+#most-event-meta label,
+#most-show-meta label {
+    display: inline-block;
+    text-align: right;
+    width: 70px;
+}
+#most-event-meta label.sub-label,
+#most-show-meta label.sub-label {
+    width: auto;
+}
+.postbox .append {
+    margin-right: -6px;
+    padding: 3px 5px;
+    border-radius: 3px 0 0 3px;
+    background-color: #eee;
+    border: 1px solid #dfdfdf;
+}
+#most-event-meta input[type="radio"],
+#most-show-meta input[type="radio"] {
+    margin-left: 10px;
+}
+#most-event-meta input[type="number"],
+#most-show-meta input[type="number"] {
+    width: 60px;
+}
+#most-event-meta input[type="checkbox"],
+#most-show-meta input[type="checkbox"] {
+    margin: 0 5px 0 10px;
+}
