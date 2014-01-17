@@ -43,7 +43,7 @@ class MOST_Posts_Widget extends WP_Widget {
 				foreach( $myposts as $post ) : setup_postdata($post); ?>
 					<li><?php 						
 						if ( has_post_thumbnail() ) {
-							$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail');
+							$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
 							$src = $image[0];
 						} else {
 							$src = get_template_directory_uri().'/img/default.png';

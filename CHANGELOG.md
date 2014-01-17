@@ -1,13 +1,23 @@
 Change Log - MOST
 ===
 
+### 0.2.0 - 17 Jan 2014
+* Styled frontend output of __MOST Post Widget__
+
+- - -
+
+### 0.1.9 - 16 Jan 2014
+* Built functions for __MOST Post Widget__ in `inc/posts-widget.php`
+
+- - -
+
 ### 0.1.8 - 13 Jan 2014
 * Fixed admin css form bugs
 * Updated `sidebar-left.php` and `sidebar-right.php` to be more flexible
 * Added sidebars to `page.php`, `single.php`, `single-event.php`, and `single-show.php`
 * Added one sidebar to `template-pages/page-calendar.php`
 * Built `search.php`, `404.php`, `archive.php`, and `index.php`
-* Added `inc/posts-widget.php` and built framework
+* Added `inc/posts-widget.php` and built framework for __MOST Post Widget__
 
 - - -
 
