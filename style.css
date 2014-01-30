@@ -1,6 +1,6 @@
 /*
 Theme Name: Most
-Theme URI: http://mostaux.org/
+Theme URI: http://most.org/
 Author: Chelsea M. P. Lorenz
 Author URI: http://www.chelsealorenz.me/
 Description: A bootstrap v2.3.2 theme built for the Museum of Science and Technology.
@@ -643,6 +643,46 @@ footer .container {
 }
 #sfpw li > a:hover + h4 {
     display: block;
+}
+ul.mpw {
+    list-style: none;
+    margin: 0;
+}
+.mpw a {
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    margin: 0 auto 20px;
+    /*background-color: #CC3366;*/
+    overflow: hidden;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    height: 204px;
+    width: 204px;
+}
+.mpw a:hover img {
+    /*display: none;*/
+}
+.mpw img {
+    height: auto;
+    max-width: none;
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+}
+.mpw a:hover h4 {
+    display: block;
+}
+.mpw h4 {
+    position: absolute;
+    display: none;
+    text-align: center;
+    padding: 50px 0;
+    margin: 0;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75); /*test*/
+    height: 100%; /*test*/
 }
 
 /**

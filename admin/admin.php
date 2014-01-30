@@ -110,6 +110,9 @@ add_action( 'init', 'most_post_type_init' );
  * Most Widget Areas
  */
 function most_widgets_init() {
+    require get_template_directory() . '/inc/posts-widget.php';
+    register_widget( 'MOST_Posts_Widget' );
+
     register_sidebar( array(
         'name'          => __( 'Left Sidebar', 'most' ),
         'description'   => __( 'Sidebar located on the left side of all page templates.', 'most' ),
