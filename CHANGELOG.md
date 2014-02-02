@@ -1,6 +1,13 @@
 Change Log - MOST
 ===
 
+### 0.2.1 - 02 Feb 2014
+* Added page template `template-pages/page-left.php`
+* Fixed column styles by adding Bootstrap __row__ class
+* Added footer theme option in `admin/admin.php` for __privacy policies__
+
+- - -
+
 ### 0.2.0 - 17 Jan 2014
 * Styled frontend output of __MOST Post Widget__
 

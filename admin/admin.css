@@ -49,6 +49,7 @@
 }
 #front-page-options .inside input[type="time"] {
     margin: 0 10px;
+    height: 30px;
 }
 #front-page-options .inside label {
     width: 80px;
@@ -60,9 +61,10 @@
 #footer-options .inside label {
     width: 105px;
 }
-#footer-options .inside input[type="phone"] {
+#footer-options .inside input[type="tel"] {
     height: 30px;
-}#footer-options .inside input[type="text"] {
+}
+#footer-options .inside input[type="text"] {
     width: 400px;
 }
 
