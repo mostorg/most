@@ -7,6 +7,7 @@
  */
 $footer = get_option('m_footer');
 ?>
+            </div><!--/.row-->
         </section><!--/#main-->
         <footer>
             <div class="container"><?php
@@ -31,7 +32,10 @@ $footer = get_option('m_footer');
                         <p>Phone: <?php echo $footer['phone']; ?></p><?php
                     }
                     if ($footer['copyright']!='') { ?>
-                        <p id="copyright"><?php echo $footer['copyright']; ?></p><?php
+                        <p id="copyright"><?php
+                            echo $footer['copyright']; ?>
+                            - <a href="<?php echo get_permalink( $footer['legal'] ); ?>"><?php echo get_the_title($footer['legal']); ?></a>
+                        </p><?php
                     } ?>
                 </article>
             </div><!-- /container -->
