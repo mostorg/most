@@ -417,6 +417,14 @@ function most_theme_options() { ?>
                             <span>Copyright Info: </span>
                         </label>
                         <input type="text" name="copyright" id="copyright" class="input-large" placeholder="" value="<?php echo isset($footer['copyright'])&&$footer['copyright']!='' ? $footer['copyright'] : ''; ?>" />
+                        <br>
+                        <label for="legal">
+                            <span>Legal Page: </span>
+                        </label><?php
+                        wp_dropdown_pages( array(
+                            'selected'  => $footer['legal'],
+                            'name'      => 'legal'
+                        ) ); ?>
                     </form>
                 </div><!--/.inside-->
             </section><!--/#footer-options-->
@@ -500,7 +508,8 @@ function most_theme_options() { ?>
                         'address2': $('#address2').val(),
                         'address3': $('#address3').val(),
                         'phone': $('#phone').val(),
-                        'copyright': $('#copyright').val()
+                        'copyright': $('#copyright').val(),
+                        'legal': $('#legal option:selected').val()
                     }
                 };
                 var data = {

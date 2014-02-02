@@ -96,3 +96,4 @@ $selected_set = get_option('selected_theme_set');
         </nav>
         <!-- End Header. Begin Template Content -->
         <section id="main" class="container">
+            <div class="row">
