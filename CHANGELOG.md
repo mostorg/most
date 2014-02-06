@@ -1,10 +1,16 @@
 Change Log - MOST
 ===
 
+### 0.2.2 - 06 Feb 2014
+* Styled frontend output for __Contact Form 7__ plugin
+
+- - -
+
 ### 0.2.1 - 02 Feb 2014
 * Added page template `template-pages/page-left.php`
 * Fixed column styles by adding Bootstrap __row__ class
 * Added footer theme option in `admin/admin.php` for __privacy policies__
+* Styled frontend output for __Contact Form 7__ plugin
 
 - - -
 
