@@ -567,6 +567,10 @@ form.cal-form {
 .wpcf7 form br {
     display: none;
 }
+.wpcf7 form .span9 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
 .wpcf7 form p {
     margin: 0;
 }
@@ -589,6 +593,21 @@ form.cal-form {
 .wpcf7 form .inline-radio label {
     display: inline-block;
     width: 60%
+}
+.wpcf7 form .inline-select label {
+    display: inline-block;
+}
+.wpcf7 form .wpcf7-submit {
+    background-color: #666;
+    border: 0 solid #666;
+    border-radius: 6px;
+    color: #fff;
+    height: 32px;
+    text-transform: uppercase;
+    padding: 8px 10px;
+}
+.wpcf7 form .wpcf7-submit:hover {
+    color: #AAE63C;
 }
 
 /**
@@ -690,13 +709,6 @@ ul.mpw {
 }
 .mpw a:hover img {
     /*display: none;*/
-}
-.mpw img {
-    height: auto;
-    max-width: none;
-    min-height: 100%;
-    min-width: 100%;
-    width: auto;
 }
 .mpw a:hover h4 {
     display: block;

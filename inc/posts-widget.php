@@ -41,15 +41,11 @@ class MOST_Posts_Widget extends WP_Widget {
 				);
 				$myposts = get_posts( $args );
 				foreach( $myposts as $post ) : setup_postdata($post); ?>
-					<li><?php 						
-						if ( has_post_thumbnail() ) {
-							$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
-							$src = $image[0];
-						} else {
-							$src = get_template_directory_uri().'/img/default.png';
-						} ?>
-						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-							<img src="<?php echo $src; ?>" alt="<?php the_title('','',FALSE); ?>" />
+					<li>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php
+							if ( has_post_thumbnail() ) {
+								the_post_thumbnail( 'widget-thumb' );
+							} ?>
 							<h4><?php the_title(); ?></h4>
 						</a>
 					</li><?php

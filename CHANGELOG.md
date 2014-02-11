@@ -1,6 +1,12 @@
 Change Log - MOST
 ===
 
+### 0.2.3 - 10 Feb 2014
+* Styled frontend output for __Contact Form 7__ plugin
+* Styled __Posts Widget__
+
+- - -
+
 ### 0.2.2 - 06 Feb 2014
 * Styled frontend output for __Contact Form 7__ plugin
 
