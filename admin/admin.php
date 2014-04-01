@@ -110,8 +110,10 @@ add_action( 'init', 'most_post_type_init' );
  * Most Widget Areas
  */
 function most_widgets_init() {
-    require get_template_directory() . '/inc/posts-widget.php';
-    register_widget( 'MOST_Posts_Widget' );
+    require get_template_directory() . '/inc/post-thumbnail-widget.php';
+    register_widget( 'MOST_Post_Thumbnail_Widget' );
+    require get_template_directory() . '/inc/events-widget.php';
+    register_widget( 'MOST_Events_Widget' );
 
     register_sidebar( array(
         'name'          => __( 'Left Sidebar', 'most' ),

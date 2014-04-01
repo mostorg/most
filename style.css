@@ -692,11 +692,12 @@ footer .container {
 #sfpw li > a:hover + h4 {
     display: block;
 }
-ul.mpw {
+ul.mptw {
     list-style: none;
     margin: 0;
 }
-.mpw a {
+.mptw a,
+.mew a.mew-thumb {
     border-radius: 20px;
     position: relative;
     display: flex;
@@ -707,13 +708,12 @@ ul.mpw {
     height: 204px;
     width: 204px;
 }
-.mpw a:hover img {
-    /*display: none;*/
-}
-.mpw a:hover h4 {
+.mptw a:hover h4,
+.mew a.mew-thumb:hover h4 {
     display: block;
 }
-.mpw h4 {
+.mptw h4,
+.mew a.mew-thumb h4 {
     position: absolute;
     display: none;
     text-align: center;

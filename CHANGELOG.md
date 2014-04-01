@@ -1,6 +1,18 @@
 Change Log - MOST
 ===
 
+### 0.2.5 - 01 Apr 2014
+* Built frontend output and save for __MOST Events Widget__ in `inc/events-widget.php`
+* Styled __MOST Events Widget__ thumbnail option
+
+- - -
+
+### 0.2.4 - 11 Feb 2014
+* Built functions for __MOST Events Widget__ in `inc/events-widget.php`
+* Renamed `inc/posts-widget.php` to `inc/post-thumbnail-widget.php`
+
+- - -
+
 ### 0.2.3 - 10 Feb 2014
 * Styled frontend output for __Contact Form 7__ plugin
 * Styled __Posts Widget__

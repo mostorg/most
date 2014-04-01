@@ -1,38 +1,38 @@
 <?php
 /*
-Plugin Name: MOST Posts Widget
+Plugin Name: MOST Post Thumbnail Widget
 Plugin URI: 
-Description: A widget that allows you to show a post list via thumbnails ordered by random or recent posts with the options of specifying post types and number of posts.
+Description: A widget that allows you to display a post list via thumbnails ordered by random or recent posts with the options of specifying post types and number of posts.
 Author: Chelsea M. P. Lorenz
 Version: 1.0
 Author URI: http://chelsealorenz.me/
 */
 
-class MOST_Posts_Widget extends WP_Widget {
+class MOST_Post_Thumbnail_Widget extends WP_Widget {
 
-    /**
-     * Register widget with WordPress.
-     */
-    function __construct() {
-            // widget actual processes
-            parent::__construct(
-                    'most_posts_widget', // ID
-                    'MOST Posts Widget', // name
-                    array( 'description' => 'Lists of posts via thumbnails.' ) // args
-            );
-    }
+	/**
+	* Register widget with WordPress.
+	*/
+	function __construct() {
+		// widget actual processes
+		parent::__construct(
+			'most_post_thumbnail_widget', // ID
+			'MOST Post Thumbnail Widget', // name
+			array( 'description' => 'Lists of posts via thumbnails.' ) // args
+		);
+	}
 
-    /**
-     * Front-end display of widget.
-     * @param array $args Widget arguments.
-     * @param array $instance Saved values from database.
-     */
-    public function widget( $args, $instance ) {
-    	// outputs the content of the widget
+	/**
+	* Front-end display of widget.
+	* @param array $args Widget arguments.
+	* @param array $instance Saved values from database.
+	*/
+	public function widget( $args, $instance ) {
+		// outputs the content of the widget
 		extract($args);
 		echo $before_widget;
 			echo $before_title.$instance['title'].$after_title; ?>
-			<ul class="mpw"><?php
+			<ul class="mptw"><?php
 				global $post;
 				$args = array( 
 					'posts_per_page' => $instance['qty'], 
@@ -54,24 +54,24 @@ class MOST_Posts_Widget extends WP_Widget {
 		echo $after_widget;
 	}
 
-    /**
-     * Sanitize widget form values as they are saved.
-     * @param array $new_instance Values just sent to be saved.
-     * @param array $old_instance Previously saved values from database.
-     * @return array Updated safe values to be saved.
-     */
-    public function update( $new_instance, $old_instance ) {
-    	// processes widget options to be saved
-    	return $new_instance;
+	/**
+	* Sanitize widget form values as they are saved.
+	* @param array $new_instance Values just sent to be saved.
+	* @param array $old_instance Previously saved values from database.
+	* @return array Updated safe values to be saved.
+	*/
+	public function update( $new_instance, $old_instance ) {
+		// processes widget options to be saved
+		return $new_instance;
 	}
 
-    /**
-     * Back-end widget form.
-     * @param array $instance Previously saved values from database.
-     */
-    public function form( $instance ) {
-    	// outputs the options form on admin
-    	if ( $instance ) {
+	/**
+	* Back-end widget form.
+	* @param array $instance Previously saved values from database.
+	*/
+	public function form( $instance ) {
+		// outputs the options form on admin
+		if ( $instance ) {
 			$title = esc_attr($instance['title']);
 			$qty = esc_attr($instance['qty']);
 			$order = $instance['order'];
@@ -107,4 +107,4 @@ class MOST_Posts_Widget extends WP_Widget {
 		</p><?php
 	}
 
-} // class MOST_Posts_Widget
+} // class MOST_Post_Thumbnail_Widget
