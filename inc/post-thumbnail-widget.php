@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: MOST Post Thumbnail Widget
-Plugin URI: 
+Plugin URI: N/A
 Description: A widget that allows you to display a post list via thumbnails ordered by random or recent posts with the options of specifying post types and number of posts.
 Author: Chelsea M. P. Lorenz
 Version: 1.0
-Author URI: http://chelsealorenz.me/
+Author URI: http://chelsealorenz.com/
 */
 
 class MOST_Post_Thumbnail_Widget extends WP_Widget {
@@ -101,6 +101,7 @@ class MOST_Post_Thumbnail_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('type'); ?>"><?php _e('Post Type:'); ?></label> 
 			<select class="widefat" id="<?php echo $this->get_field_id('type'); ?>" name="<?php echo $this->get_field_name('type'); ?>">
 				<option <?php echo $type=='post' ? 'selected' : ''; ?> value="post"><?php _e('Post'); ?></option>
+				<option <?php echo $type=='page' ? 'selected' : ''; ?> value="page"><?php _e('Page'); ?></option>
 				<option <?php echo $type=='event' ? 'selected' : ''; ?> value="event"><?php _e('Event'); ?></option>
 				<option <?php echo $type=='show' ? 'selected' : ''; ?> value="show"><?php _e('Show'); ?></option>
 			</select>

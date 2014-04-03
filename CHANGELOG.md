@@ -3,6 +3,7 @@ Change Log - MOST
 
 ### 0.2.6 - 03 Apr 2014
 * Updated `sidebar-left.php` and `sidebar-right.php` with the conditions to use front page widgets
+* Built and styled __MOST Shows Widget__ in `inc/shows-widget.php`
 
 - - -
 
