@@ -1,6 +1,11 @@
 Change Log - MOST
 ===
 
+### 0.2.6 - 03 Apr 2014
+* Updated `sidebar-left.php` and `sidebar-right.php` with the conditions to use front page widgets
+
+- - -
+
 ### 0.2.5 - 01 Apr 2014
 * Built frontend output and save for __MOST Events Widget__ in `inc/events-widget.php`
 * Styled __MOST Events Widget__ thumbnail option

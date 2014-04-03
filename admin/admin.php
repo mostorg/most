@@ -116,22 +116,42 @@ function most_widgets_init() {
     register_widget( 'MOST_Events_Widget' );
 
     register_sidebar( array(
-        'name'          => __( 'Left Sidebar', 'most' ),
-        'description'   => __( 'Sidebar located on the left side of all page templates.', 'most' ),
-        'id'            => 'left-sidebar',
+        'name'          => __( 'Front Left Sidebar', 'most' ),
+        'description'   => __( 'Sidebar located on the left side of the front page template.', 'most' ),
+        'id'            => 'front-left-sidebar',
         'class'         => 'sidebar',
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
         'before_title'  => '<h3 class="widget-title">',
         'after_title'   => '</h3>' 
     ) );
     register_sidebar( array(
-        'name'          => __( 'Right Sidebar', 'most' ),
-        'description'   => __( 'Sidebar located on the right side of all page templates.', 'most' ),
-        'id'            => 'right-sidebar',
+        'name'          => __( 'Front Right Sidebar', 'most' ),
+        'description'   => __( 'Sidebar located on the right side of the front page template.', 'most' ),
+        'id'            => 'front-right-sidebar',
         'class'         => 'sidebar',
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>' 
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Inner Left Sidebar', 'most' ),
+        'description'   => __( 'Sidebar located on the left side of all inside page templates.', 'most' ),
+        'id'            => 'inner-left-sidebar',
+        'class'         => 'sidebar',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>' 
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Inner Right Sidebar', 'most' ),
+        'description'   => __( 'Sidebar located on the right side of all insider page templates.', 'most' ),
+        'id'            => 'inner-right-sidebar',
+        'class'         => 'sidebar',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
         'before_title'  => '<h3 class="widget-title">',
         'after_title'   => '</h3>' 
     ) );

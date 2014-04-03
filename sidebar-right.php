@@ -7,6 +7,10 @@
  */
 if (function_exists('dynamic_sidebar')) { ?>
 	<aside id="sidebar-right" class="span3 pull-right"><?php
-	    dynamic_sidebar('right-sidebar'); ?>
+   	if ( is_front_page() ) :
+	   	dynamic_sidebar('front-right-sidebar');
+   	else :
+	   	dynamic_sidebar('inner-right-sidebar');
+   	endif; ?>
 	</aside><?php
 }
