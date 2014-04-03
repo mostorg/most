@@ -698,7 +698,8 @@ ul.mptw {
 }
 .mptw a,
 .mew a.mew-thumb,
-.msw a.msw-thumb {
+.msw a.msw-thumb,
+.mpw a.mpw-thumb {
     border-radius: 20px;
     position: relative;
     display: flex;
@@ -710,18 +711,21 @@ ul.mptw {
     width: 204px;
 }
 .mew a.mew-thumb img,
-.msw a.msw-thumb img {
+.msw a.msw-thumb img,
+.mpw a.mpw-thumb img {
     width: 100%;
     height: auto;
 }
 .mptw a:hover h4,
 .mew a.mew-thumb:hover h4,
-.msw a.msw-thumb:hover h4 {
+.msw a.msw-thumb:hover h4,
+.mpw a.mpw-thumb:hover h4 {
     display: block;
 }
 .mptw h4,
 .mew a.mew-thumb h4,
-.msw a.msw-thumb h4 {
+.msw a.msw-thumb h4,
+.mpw a.mpw-thumb h4 {
     position: absolute;
     display: none;
     text-align: center;

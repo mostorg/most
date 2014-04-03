@@ -44,7 +44,7 @@ class MOST_Shows_Widget extends WP_Widget {
 							echo get_the_post_thumbnail( $sID, 'widget-thumb' ); ?>
 							<h4><?php echo get_the_title($sID); ?></h4><?php
 						} else { ?>
-							<img src="<?php echo get_template_directory_uri(); ?>/img/default.png" alt="Show" />
+							<img src="<?php echo get_template_directory_uri(); ?>/img/default.png" alt="Featured Show" />
 							<h4><?php echo get_the_title($sID); ?></h4><?php
 						} ?>
 					</a><?php
