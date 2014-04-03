@@ -5,6 +5,7 @@ Change Log - MOST
 * Updated `sidebar-left.php` and `sidebar-right.php` with the conditions to use front page widgets
 * Built and styled __MOST Shows Widget__ in `inc/shows-widget.php`
 * Built and styled __MOST Posts Widget__ in `inc/posts-widget.php`
+* Built and styled __MOST Pages Widget__ in `inc/pages-widget.php`
 
 - - -
 

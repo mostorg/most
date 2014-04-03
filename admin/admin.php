@@ -118,6 +118,8 @@ function most_widgets_init() {
     register_widget( 'MOST_Shows_Widget' );
     require get_template_directory() . '/inc/posts-widget.php';
     register_widget( 'MOST_Posts_Widget' );
+    require get_template_directory() . '/inc/pages-widget.php';
+    register_widget( 'MOST_Pages_Widget' );
 
     register_sidebar( array(
         'name'          => __( 'Front Left Sidebar', 'most' ),
