@@ -49,6 +49,7 @@ function most_theme_setup() {
     add_theme_support( 'custom-header', array('header-text'=>false) );
     add_theme_support( 'html5', array('search-form') );
     add_theme_support( 'post-thumbnails' );
+    add_image_size( 'widget-thumb', 204, 204, true );
     register_nav_menus( array(
         'quick-menu'    =>  __('Quick Menu', 'most'),
         'side-menu'     =>  __('Side Menu', 'most'),

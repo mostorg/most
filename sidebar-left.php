@@ -14,7 +14,13 @@
         'menu_id' => 'side-menu',
         'fallback_cb' => ''
     ) );
-    if (function_exists('dynamic_sidebar')) {
-	    dynamic_sidebar('left-sidebar');
-	} ?>
+    if ( is_front_page() ) {
+        if (function_exists('dynamic_sidebar')) {
+            dynamic_sidebar('front-left-sidebar');
+        }
+    } else {
+        if (function_exists('dynamic_sidebar')) {
+    	    dynamic_sidebar('inner-left-sidebar');
+    	}
+    } ?>
 </aside>

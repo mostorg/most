@@ -2,7 +2,7 @@
 Theme Name: Most
 Theme URI: http://most.org/
 Author: Chelsea M. P. Lorenz
-Author URI: http://www.chelsealorenz.me/
+Author URI: http://www.chelsealorenz.com/
 Description: A bootstrap v2.3.2 theme built for the Museum of Science and Technology.
 Version: 1.0
 =======
@@ -562,6 +562,55 @@ form.cal-form {
 }
 
 /**
+ * SIDEBAR
+ */
+.wpcf7 form br {
+    display: none;
+}
+.wpcf7 form .span9 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.wpcf7 form p {
+    margin: 0;
+}
+.wpcf7 form .span4 input[type="text"],
+.wpcf7 form .span4 input[type="email"],
+.wpcf7 form .span4 input[type="tel"],
+.wpcf7 form .span4 input[type="number"] {
+    width: 80%;
+}
+.wpcf7 form .span9 input[type="text"],
+.wpcf7 form .span9 input[type="email"],
+.wpcf7 form .span9 input[type="tel"],
+.wpcf7 form .span9 input[type="number"] {
+    width: 50%;
+}
+.wpcf7 form textarea {
+    width: 100%;
+    height: 100px;
+}
+.wpcf7 form .inline-radio label {
+    display: inline-block;
+    width: 60%
+}
+.wpcf7 form .inline-select label {
+    display: inline-block;
+}
+.wpcf7 form .wpcf7-submit {
+    background-color: #666;
+    border: 0 solid #666;
+    border-radius: 6px;
+    color: #fff;
+    height: 32px;
+    text-transform: uppercase;
+    padding: 8px 10px;
+}
+.wpcf7 form .wpcf7-submit:hover {
+    color: #AAE63C;
+}
+
+/**
  * FOOTER
  */
 footer {
@@ -643,11 +692,15 @@ footer .container {
 #sfpw li > a:hover + h4 {
     display: block;
 }
-ul.mpw {
+ul.mptw {
     list-style: none;
     margin: 0;
 }
-.mpw a {
+.mptw a,
+.mew a.mew-thumb,
+.msw a.msw-thumb,
+.mpw a.mpw-thumb,
+.mpgw a.mpgw-thumb {
     border-radius: 20px;
     position: relative;
     display: flex;
@@ -658,20 +711,25 @@ ul.mpw {
     height: 204px;
     width: 204px;
 }
-.mpw a:hover img {
-    /*display: none;*/
-}
-.mpw img {
+.mew a.mew-thumb img,
+.msw a.msw-thumb img,
+.mpw a.mpw-thumb img,
+.mpgw a.mpgw-thumb img {
+    width: 100%;
     height: auto;
-    max-width: none;
-    min-height: 100%;
-    min-width: 100%;
-    width: auto;
 }
-.mpw a:hover h4 {
+.mptw a:hover h4,
+.mew a.mew-thumb:hover h4,
+.msw a.msw-thumb:hover h4,
+.mpw a.mpw-thumb:hover h4,
+.mpgw a.mpgw-thumb:hover h4 {
     display: block;
 }
-.mpw h4 {
+.mptw h4,
+.mew a.mew-thumb h4,
+.msw a.msw-thumb h4,
+.mpw a.mpw-thumb h4,
+.mpgw a.mpgw-thumb h4 {
     position: absolute;
     display: none;
     text-align: center;
